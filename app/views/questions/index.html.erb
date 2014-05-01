@@ -1,0 +1,44 @@
+<div id="home">
+  <div class="jumbotron">
+  <h1>
+    R.A Feedback,
+    <small>
+      Pose la bonne question aux bonnes personnes !
+    </small>
+  </h1>
+</div>
+<header class="clearfix">
+  <h2 class="pull-left">
+    Toutes les questions
+  </h2>
+  <%= link_to 'Poser une question', new_question_path, class: "pull-right btn btn-primary" %>
+</header>
+
+<div id="questions" class="clearfix">
+  
+  <% @questions.each do |q| %>
+  
+  <div class="question">
+    <div class="title">
+      <h3>
+        <%= link_to q.title, q %>
+      </h3>
+    </div>
+    <div class="datetime">
+      postée il y a 2 jours
+    </div>
+    <div class="pull-right ranking">
+      Pratique pour
+      <% if q.rating.nil? || q.rating == 0 %>
+        <span class="label label-default">Aucun filleul pour le moment</span>
+      <% else %>
+        <span class="label label-success"><%= q.rating %> filleuls</span>
+      <% end %>
+    </div>
+  </div>
+
+  <% end %>
+
+</div>
+
+</div>
