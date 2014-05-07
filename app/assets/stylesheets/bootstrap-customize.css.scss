@@ -9,6 +9,9 @@
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 
 /* Own custome styles *************************************/
+.alpha { margin-left: 0; }
+.omega { margin-right: 0; }
+.no-padding{padding: 0!important;}
 #home header, #question-show header{
   margin-bottom: 30px;
   border-bottom: 1px solid black;
@@ -33,6 +36,7 @@
         a:hover{background: transparent;}
         } 
       }
+      .tags{margin-right: 20px; .tag:visited{color:black;} .tag:hover{color:white;}}
       .datetime{color:rgb(174, 167, 159);}
       .ranking{font-size: 20px;}
     }

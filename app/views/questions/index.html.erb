@@ -24,8 +24,13 @@
         <%= link_to q.title, q %>
       </h3>
     </div>
+    <div class="tags">
+      <% q.tags.each do |t| %>
+      <a class="tag" href="#"><%= t.name %></a>
+      <% end %>
+    </div>
     <div class="datetime">
-      postée il y a 2 jours
+      il y a 2 jours
     </div>
     <div class="pull-right ranking">
       Pratique pour

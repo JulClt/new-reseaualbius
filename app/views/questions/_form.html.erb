@@ -12,14 +12,28 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :title, "Ta question" %><br>
+    <%= f.label :title, "Ta question" %>
+    <span class="help-block">Résume en une question le renseignement dont tu as besoin.</span>
     <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :content, "Plus de détails" %><br>
+    <%= f.label :content, "Plus de détails" %>
+    <span class="help-block">Pas obligatoire, tu peux ici donner plus de détails afin d'aidier les parrains dans leurs réponses.</span>
     <%= f.text_area :content, class: "form-control" %>
   </div>
+  <div class="form-group clearfix">
+    <%= f.label :tag_ids, "Ajouter un tag"%>
+    <span class="help-block">Tu peux ici indiquer un tag afin de classer ta question en fonction de la ville et du secteur d'activité (ou étude). Cela permettra de mieux cibler les parrains.</span>
+    <div class="col-xs-4 no-padding">
+      <label for="">Ville</label>
+      <%= select_tag "question[tag_ids][]", options_from_collection_for_select(Tag.all, "id", "name"), prompt: "Sélectionne tag pour la ville", class: "form-control" %>
+      <br>
+      <!-- selected: @question.tags.first.id if !@question.tags.first.nil? -->
+      <label for="">Secteur d'activité</label>
+      <%= select_tag "question[tag_ids][]", options_from_collection_for_select(Tag.all, "id", "name"), prompt: "Sélectionne un tag pour le secteur d'activité", class: "form-control" %>
+    </div>
+  </div>
   <div class="actions">
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit "Poser la question", class: "btn btn-primary" %>
   </div>
 <% end %>
